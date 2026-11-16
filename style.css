@@ -11,7 +11,7 @@
 	--color-regular: color-mix(in srgb, CanvasText 85%, Canvas);
 	--color-soft: color-mix(in srgb, CanvasText 70%, Canvas);
 	--brand-surface: linear-gradient(175deg, var(--brand-1), var(--brand-2));
-	--brand-color: rgba(0,0,0,0.9);
+	--brand-color: ActiveText;
 	--brand-1: #FEED01;
 	--brand-2: #F9E010;
 
@@ -158,18 +158,17 @@ a {
 	text-decoration: none;
 
 	&:hover {
-		background: var(--brand-surface);
 		color: var(--brand-color);
 	}
 
 	&[aria-current="page"] {
-		color: ActiveText;
+		color: var(--brand-color);
 		text-decoration: underline;
 
 		&:hover {
 			cursor: default;
 			background: inherit;
-			color: var(--brand-color);
+			color: inherit;
 		}
 	}
 
@@ -254,7 +253,7 @@ nav a {
 	li {
 		padding: 0;
 
-		a {
+		a, span {
 			text-fit: shrink;
 			display: block;
 			padding-inline: 1ch;
@@ -275,8 +274,8 @@ nav a {
 
 /** Layouts **/
 .primary-layout {
-	max-width: 100ch;
-	padding-block: 1rlh;
+	max-width: 110ch;
+	padding-block: 3rlh;
 	padding-inline: 1rem;
 	display: grid;
 	grid-template-columns: repeat(8, 1fr);
@@ -284,7 +283,25 @@ nav a {
 	row-gap: 2rlh;
 
 	@media print {
+		/*padding-block: 0;*/
+		padding-inline-end: 0;
 		max-width: none;
+	}
+}
+
+header {
+	container-type: inline-size;
+
+	h1 {
+		font-size: clamp(2rem, 12.75cqi, 8rem);
+		white-space: nowrap;
+		text-box: cap alphabetic;
+		text-fit: shrink;
+		letter-spacing: -.01em;
+
+		@media print {
+			font-size: 60pt;
+		}
 	}
 }
 
@@ -307,10 +324,6 @@ nav a {
 		grid-column: 1/-1;
 
 		.p-name {
-			text-box: cap alphabetic;
-			text-fit: shrink;
-			white-space: nowrap;
-			letter-spacing: -.01em;
 			height: 3rlh;
 			margin-block: 0 1rlh;
 		}
@@ -353,7 +366,7 @@ nav a {
 			nav {
 				float: left;
 				margin-block: 1rlh;
-				width: calc(100%/7.6);
+				width: calc(100%/7.8);
 				height: 50%;
 				padding-inline-end: 2ch;
 			}
@@ -369,7 +382,7 @@ nav a {
 		}
 	}
 
-	@media (min-width: 100ch) {
+	@media (min-width: 110ch) {
 		header .p-name {
 			height: 4rlh;
 		}
