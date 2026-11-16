@@ -55,11 +55,11 @@ html {
 		navigation: auto;
 	}
 
-	h1.p-name {
+	h1 {
 		view-transition-name: identity;
 	}
 
-	img.p-photo {
+	.p-photo {
 		view-transition-name: portrait;
 	}
 
@@ -162,6 +162,17 @@ a {
 		color: var(--brand-color);
 	}
 
+	&[aria-current="page"] {
+		color: ActiveText;
+		text-decoration: underline;
+
+		&:hover {
+			cursor: default;
+			background: inherit;
+			color: var(--brand-color);
+		}
+	}
+
 	&[rel=me]::after {
 		content: attr(href);
 		font-weight: normal;
@@ -178,10 +189,6 @@ nav a {
 	white-space: nowrap;
 	display: block;
 	padding-inline: 2ch;
-
-	&[aria-current="page"] {
-		background: var(--surface-soft);
-	}
 }
 
 /**
