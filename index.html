@@ -7,42 +7,33 @@
 		<link rel="preconnect" href="https://rsms.me/">
 		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 		<link rel="stylesheet" type="text/css" href="/style.css">
-		<link rel="expect" href="#pitch" blocking="render">
+		<link rel="expect" href="#question" blocking="render">
 	</head>
-	<body>
-
-		<div class="primary-layout elevator-pitch">
+	<body class="elevator-pitch">
+		<div class="page prose stack">
 			<header>
-				<hgroup class="stack">
+				<hgroup>
 					<h1 class="p-name">Jeroen Coumans</h1>
-					<p class="p-title callout large">Product designer and front-end engineer</p>
+					<p class="p-title">Product designer and front-end engineer</p>
 				</hgroup>
-				<img class="p-photo" alt="" src="/photos/me-26-05-2022.webp" width="175" height="280" />
 			</header>
 
-			<main id="pitch" class="prose p-summary stack">
+			<nav>
+				<a href="/" aria-current="page">About</a>
+				<a href="/resume/">Resume</a>
+			</nav>
+
+			<main id="pitch" class="p-summary stack">
 				<p>I'm a maker at heart. Ever since I was a child, I've loved getting lost in the creative process. What started with drawing and painting eventually became a career spanning 20+ years at the intersection of design and engineering.</p>
 				<p>I've worked on products used by millions, co-founded two companies and built and led product and engineering teams. But what gives me the most energy is still designing and building things myself. I enjoy turning complex problems into simple, functional and beautiful user experiences.</p>
 				<p>I'm increasingly driven by <strong>what</strong> I build, not just <strong>how</strong> I build it. Now I want to build products that make a positive impact beyond the screen, ideally contributing to a more sustainable future.</p>
 
-				<p class="callout">Do you have a challenge where my experience could make a difference? Let's talk.</p>
 			</main>
 
-			<nav>
-				<a href="/" aria-current="page">Home</a>
-				<!--<a href="/portfolio/">Portfolio</a>-->
-				<a href="/resume/">Resume</a>
-			</nav>
-
-			<footer class="p-contact">
-				<ul class="callout-links">
-					<li>
-						<a class="u-email" href="mailto:hello@jeroencoumans.nl">
-							hello@jeroencoumans.nl
-						</a>
-					</li>
-				</ul>
-			</footer>
+			<aside id="question" class="flex-media">
+				<img class="p-photo" alt="" src="/photos/me-26-05-2022.webp" width="175" height="280" />
+				<p class="callout">Do you have a challenge where my experience could make a difference? <a class="button u-email" href="mailto:hello@jeroencoumans.nl">Let's talk</a></p>
+			</aside>
 		</div>
 	</body>
 </html>
