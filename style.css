@@ -68,10 +68,6 @@ html {
 		view-transition-name: portrait;
 	}
 
-	.p-contact {
-		view-transition-name: contact;
-	}
-
 	::view-transition-group(*) {
 		animation-duration: 250ms;
 		animation-timing-function: ease-in-out;
@@ -449,8 +445,8 @@ nav a {
 
 	@media screen, print and (max-width: 19cm) {
 		.h-card {
-			.p-tel,
-			.p-location {
+			li:has(.p-tel),
+			li:has(.p-location) {
 				display: none;
 			}
 		}
