@@ -99,7 +99,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin-block: 0;
 	font-size: 1rem;
 	font-weight: 900;
-	line-height: 1rlh;
+	line-height: round(up, 1em, 1rlh);
 
 	@media print {
 		break-after: avoid;
@@ -111,70 +111,41 @@ header {
 
 	hgroup {
 		container-type: inline-size;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		height: 3rlh;
-		margin-block: 1rlh;
-
-		@media (min-width: 375px) {
-			height: 4rlh;
-		}
-
-		@media (min-width: 768px) {
-			height: 5rlh;
-		}
-
-		@media (min-width: 1024px) {
-			height: 6rlh;
-		}
-
-		@supports(height: calc-size(auto, round(up, size, 1rlh))) {
-			height: calc-size(auto, round(up, size, 1rlh));
-		}
 	}
 
 	h1 {
-		text-box: cap alphabetic;
-		font-size: clamp(1rem, 12cqi, 9rem);
-		line-height: 4rlh;
+		font-size: clamp(1rlh, round(nearest, 9cqi, 1rlh), 4rlh);
+		line-height: round(up, 1em, 1rlh);
 		letter-spacing: -.03em;
 		white-space: nowrap;
 
 		@media print {
-			font-size: 60pt;
+			/*font-size: 60pt;*/
 		}
 	}
 
 	h1 + p {
 		color: var(--color-soft);
-		font-size: clamp(.875rem, 5cqi, 2.5rem);
-		line-height: 3rlh;
+		font-size: clamp(.75rlh, round(down, 4cqi, 1rlh), 2.5rlh);
+		line-height: round(up, 1em, 1rlh);
 		white-space: nowrap;
-		padding-block-start: .515rlh;
 		font-weight: 300;
 	}
 }
 
 h2 {
 	font-size: 1.25rem;
-	line-height: 1rlh;
 	margin-inline-start: -1rch;
 	padding-inline: 1rch;
-	padding-block: .697rlh;
-	display: inline-block;
-	background: var(--color-loud);
 	color: var(--surface-regular);
-}
-
-h3 {
-	padding-block-start: .514rlh;
+	display: block;
+	width: fit-content;
+	background: var(--color-loud);
 }
 
 p {
 	margin-block: 0;
 	text-wrap: pretty;
-	padding-block-start: .515rlh;
 }
 
 ul, ol {
@@ -184,10 +155,6 @@ ul, ol {
 
 ul {
 	list-style: "– " outside;
-}
-
-li {
-	padding-block-start: .514rlh;
 }
 
 abbr {
@@ -244,10 +211,6 @@ nav a {
  * Classes
 **/
 
-.prose :is(h1, h2, h3, h4, p, ul, ol, li, blockquote, figure) {
-	text-box: cap alphabetic;
-}
-
 .stack > * + * {
 	margin-block-start: 1rlh;
 }
@@ -255,9 +218,8 @@ nav a {
 .callout {
 	font-size: 1.25rem;
 	font-weight: 300;
-	line-height: 1rlh;
+	line-height: round(up, 1em, 1rlh);
 	color: var(--color-soft);
-	padding-top: .393rlh;
 }
 
 .detail {
@@ -310,7 +272,6 @@ nav a {
 .button {
 	display: inline-block;
 	padding-inline: 1ch;
-	padding-block: .01rlh;
 	white-space: nowrap;
 	color: var(--surface-regular);
 	background: var(--color-loud);
@@ -340,10 +301,6 @@ nav a {
 			flex-direction: column;
 			grid-column: 1/2;
 			gap: 0;
-
-			a {
-				padding-block-start: .1rlh;
-			}
 		}
 
 		main {
@@ -368,34 +325,11 @@ nav a {
 .h-resume {
 	.h-card {
 		.p-name {
-			font-size: clamp(1rem, 10cqi, 7rem);
 			grid-column: 1/8;
-			height: 2rlh;
-
-			@media (min-width: 375px) {
-				height: 3rlh;
-			}
-
-			@media (min-width: 768px) {
-				height: 4rlh;
-			}
-
-			@media (min-width: 1024px) {
-				height: 5rlh;
-			}
-
-			@media (min-width: 1440px) {
-				height: 6rlh;
-			}
-
-			@supports(height: calc-size(auto, round(up, size, 1rlh))) {
-				height: calc-size(auto, round(up, size, 1rlh));
-			}
 		}
 
 		.p-portrait {
 			grid-column: 1/9;
-			margin-block-start: 0;
 			margin-inline: -1rem;
 			padding-inline: 1rem;
 			height: 1rlh;
@@ -409,10 +343,6 @@ nav a {
 				padding-inline: 0;
 				gap: 3rem;
 
-				li {
-					padding-block: 0.25rlh;
-				}
-
 				a {
 					color: inherit;
 				}
@@ -420,25 +350,18 @@ nav a {
 
 			.p-photo {
 				float: right;
-				margin-block-start: -1rlh;
+				translate: 0 -70%;
 				margin-inline: 1rem;
 				width: auto;
 				height: 4rlh;
+				height: clamp(4rlh, 25cqi, 8rlh);
+			}
+		}
 
-				@media (min-width: 375px) {
-					margin-block-start: -2rlh;
-					height: 4rlh;
-				}
-
-				@media (min-width: 768px) {
-					margin-block-start: -4rlh;
-					height: 6rlh;
-				}
-
-				@media print, (min-width: 1024px) {
-					margin-block-start: -5rlh;
-					height: 8rlh;
-				}
+		@media (max-width: 767px) {
+			.p-portrait,
+			.p-summary {
+				margin-block-start: 1rlh;
 			}
 		}
 	}
@@ -458,7 +381,7 @@ nav a {
 			@media print {
 				grid-column: 1/9;
 			}
-			margin-bottom: 1rlh;
+			margin-block: 1rlh;
 		}
 
 		nav {
